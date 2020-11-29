@@ -105,9 +105,6 @@
     <value>Welt</value>
   </data>
   <data name="GroupB.Child.Hello" xml:space="preserve">
-    <value>Hallo B</value>
-  </data>
-  <data name="GroupB.Child.World" xml:space="preserve">
-    <value>Welt B</value>
+    <value>Hallo {name}</value>
   </data>
 </root>

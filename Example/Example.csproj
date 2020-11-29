@@ -6,18 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="ExampleResources.de.resx">
-      <SubType>Designer</SubType>
-      <LastGenOutput>ExampleResources.Designer.cs</LastGenOutput>
-      <Generator>ResXFileCodeGenerator</Generator>
-    </EmbeddedResource>
-  </ItemGroup>
-
-
-  <ItemGroup>
     <ProjectReference Include="..\ResourceBridge\ResourceBridge\ResourceBridge.csproj"
                       ReferenceOutputAssembly="false"
                       OutputItemType="Analyzer" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="ExampleResources.de.resx" />
   </ItemGroup>
 
 </Project>
