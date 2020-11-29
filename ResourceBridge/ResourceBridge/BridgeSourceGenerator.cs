@@ -1,21 +1,21 @@
 ﻿using Microsoft.CodeAnalysis;
 using System;
+using System.Diagnostics;
+using System.Text;
+using Microsoft.CodeAnalysis.Text;
 
 namespace ResourceBridge
 {
     [Generator]
-    public class MySourceGenerator : ISourceGenerator
+    public class BridgeSourceGenerator : ISourceGenerator
     {
         public void Initialize(GeneratorInitializationContext context)
         {
-            throw new NotImplementedException();
         }
 
         public void Execute(GeneratorExecutionContext context)
         {
-            throw new NotImplementedException();
         }
-
-
-    }
+        
+}
 }
