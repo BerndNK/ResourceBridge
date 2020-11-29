@@ -126,7 +126,7 @@ namespace ResourceBridge
             var parameter = ResolveParameter(entry);
             foreach (var singleParameter in parameter)
             {
-                sb.AppendLine($@"sb.Replace(""{singleParameter}"", {singleParameter});");
+                sb.AppendLine($@"sb.Replace(""{{{singleParameter}}}"", {singleParameter});");
             }
 
             return sb.ToString();

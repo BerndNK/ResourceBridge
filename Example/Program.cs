@@ -9,10 +9,10 @@ namespace Example
         static void Main(string[] args)
         {
             var examples = new ExampleResources(new StringLocalizerDummy<ExampleResources>());
-            Console.WriteLine(examples.GroupA.Hello);
-            Console.WriteLine(examples.GroupA.World);
+            Console.WriteLine(examples.GroupA.Hello); // Hello
+            Console.WriteLine(examples.GroupA.World); // World
 
-            Console.WriteLine(examples.GroupB.Child.Hello("World"));
+            Console.WriteLine(examples.GroupB.Child.Hello("World")); // Hello World
 
             Console.ReadKey();
         }
@@ -20,6 +20,5 @@ namespace Example
 
     internal class StringLocalizerDummy<T> : IStringLocalizer<T>
     {
-
     }
 }
