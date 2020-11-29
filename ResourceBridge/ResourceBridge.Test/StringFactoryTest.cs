@@ -215,8 +215,8 @@ namespace TestNamespace
     
         public string AString(string param1, string param2) {
             var sb = new StringBuilder(_stringLocalizer[""A""]);
-            sb.Replace(""param1"", param1);
-            sb.Replace(""param2"", param2);
+            sb.Replace(""{param1}"", param1);
+            sb.Replace(""{param2}"", param2);
         
              return sb.ToString();
         }
