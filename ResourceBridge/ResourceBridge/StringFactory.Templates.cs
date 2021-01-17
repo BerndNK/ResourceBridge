@@ -45,7 +45,7 @@ namespace {Namespace}
 
         private const string StringLocalizerKey = nameof(StringLocalizerKey);
 
-        private const string TextPropertyTemplate = @"public string {PropertyName} => _stringLocalizer[""{StringLocalizerKey}""];";
+        private const string TextPropertyTemplate = @"public string {PropertyName} => _stringLocalizer[""{StringLocalizerKey}""] ?? ""{StringLocalizerKey}"";";
 
         private const string MethodContent = nameof(MethodContent);
         private const string MethodParameter = nameof(MethodParameter);
