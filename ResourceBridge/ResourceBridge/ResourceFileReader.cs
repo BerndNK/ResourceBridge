@@ -21,6 +21,9 @@ namespace ResourceBridge
                 var name = xmlNode.Attributes["name"]?.Value;
                 var value = ResolveValue(xmlNode);
 
+                if(name == null)
+                    continue;
+                
                 yield return new TextResource(name, value);
             }
         }

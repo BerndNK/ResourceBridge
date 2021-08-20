@@ -7,16 +7,8 @@ using System.Text.RegularExpressions;
 
 namespace ResourceBridge
 {
-    partial class StringFactory
+    internal partial class StringFactory
     {
-        public struct ResourceGenerationMetadata
-        {
-            public string FileName { get; set; }
-
-            public string Namespace { get; set; }
-
-        };
-
         public string GenerateSource(Group forGroup, ResourceGenerationMetadata metadata)
         {
             var sb = new StringBuilder(FileTemplate);

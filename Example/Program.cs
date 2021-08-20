@@ -6,7 +6,7 @@ namespace Example
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             var examples = new ExampleResources(new StringLocalizerDummy<ExampleResources>());
             Console.WriteLine(examples.GroupA.Hello); // Hello

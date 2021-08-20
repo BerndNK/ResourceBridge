@@ -43,7 +43,7 @@ namespace ResourceBridge.Test
             };
 
             var group = _uut.CreateGroup(entries);
-            var metadata = new StringFactory.ResourceGenerationMetadata { FileName = "Test", Namespace = "TestNamespace" };
+            var metadata = new ResourceGenerationMetadata("Test", "TestNamespace");
             var source = _uut.GenerateSource(group, metadata);
             
             Assert.That(source, Is.EqualTo(GeneratingSourceFromValidGroupResultsInValidSourceExpectedResult));
@@ -60,7 +60,7 @@ namespace ResourceBridge.Test
             };
 
             var group = _uut.CreateGroup(entries);
-            var metadata = new StringFactory.ResourceGenerationMetadata { FileName = "Test", Namespace = "TestNamespace"};
+            var metadata = new ResourceGenerationMetadata ("Test", "TestNamespace");
             var source = _uut.GenerateSource(group, metadata);
 
             Assert.That(source, Is.EqualTo(GeneratingSourceWithParameterizedValuesResultsInMethodsExpectedResult));
@@ -107,7 +107,7 @@ namespace TestNamespace
     
         public ILocalizedTest.ILocalizedA A { get; }
     
-        public string AString => _stringLocalizer[""A""] ?? ""A"";
+        public string AString => _stringLocalizer[""A""] as string ?? ""A"";
     
     
         public Test(IStringLocalizer<Test> stringLocalizer)
@@ -138,7 +138,7 @@ namespace TestNamespace
             
                 public ILocalizedTest.ILocalizedA.ILocalizedB.ILocalizedD D { get; }
             
-                public string DString => _stringLocalizer[""A.B.D""] ?? ""A.B.D"";
+                public string DString => _stringLocalizer[""A.B.D""] as string ?? ""A.B.D"";
             
             
                 public BClass(IStringLocalizer<Test> stringLocalizer)
@@ -153,7 +153,7 @@ namespace TestNamespace
                     private readonly IStringLocalizer<Test> _stringLocalizer;
                 
                 
-                    public string E => _stringLocalizer[""A.B.D.E""] ?? ""A.B.D.E"";
+                    public string E => _stringLocalizer[""A.B.D.E""] as string ?? ""A.B.D.E"";
                 
                 
                     public DClass(IStringLocalizer<Test> stringLocalizer)
@@ -250,7 +250,7 @@ namespace TestNamespace
             
                 public ILocalizedTest.ILocalizedA.ILocalizedB.ILocalizedD D { get; }
             
-                public string DString => _stringLocalizer[""A.B.D""] ?? ""A.B.D"";
+                public string DString => _stringLocalizer[""A.B.D""] as string ?? ""A.B.D"";
             
             
                 public BClass(IStringLocalizer<Test> stringLocalizer)
@@ -265,7 +265,7 @@ namespace TestNamespace
                     private readonly IStringLocalizer<Test> _stringLocalizer;
                 
                 
-                    public string E => _stringLocalizer[""A.B.D.E""] ?? ""A.B.D.E"";
+                    public string E => _stringLocalizer[""A.B.D.E""] as string ?? ""A.B.D.E"";
                 
                 
                     public DClass(IStringLocalizer<Test> stringLocalizer)
