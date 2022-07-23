@@ -17,24 +17,31 @@ namespace ResourceBridge
 
         public void Execute(GeneratorExecutionContext context)
         {
-            var factory = new StringFactory();
-            var reader = new ResourceFileReader();
-            var files = FilesToProcess(context);
-            foreach (var file in files)
+            try
             {
-                if (context.CancellationToken.IsCancellationRequested)
-                    return;
+                var factory = new StringFactory();
+                var reader = new ResourceFileReader();
+                var files = FilesToProcess(context);
+                foreach (var file in files)
+                {
+                    if (context.CancellationToken.IsCancellationRequested)
+                        return;
 
-                var fileName = Path.GetFileNameWithoutExtension(file.Path).Split('.').First();
-                var metadata = new ResourceGenerationMetadata(fileName, "BridgeSource");
+                    var fileName = Path.GetFileNameWithoutExtension(file.Path).Split('.').First();
+                    var metadata = new ResourceGenerationMetadata(fileName, "BridgeSource");
 
-                var content = reader.Read(file.GetText(context.CancellationToken)?.ToString() ?? string.Empty);
-                var group = factory.CreateGroup(content);
+                    var content = reader.Read(file.GetText(context.CancellationToken)?.ToString() ?? string.Empty);
+                    var group = factory.CreateGroup(content);
 
-                var source = factory.GenerateSource(group, metadata);
+                    var source = factory.GenerateSource(group, metadata);
 
-                if (!context.CancellationToken.IsCancellationRequested)
-                    context.AddSource(fileName, SourceText.From(source, Encoding.UTF8));
+                    if (!context.CancellationToken.IsCancellationRequested)
+                        context.AddSource(fileName, SourceText.From(source, Encoding.UTF8));
+                }
+            }
+            catch (Exception)
+            {
+                // ignored
             }
         }
 

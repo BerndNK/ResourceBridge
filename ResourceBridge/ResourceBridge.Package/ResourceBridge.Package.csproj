@@ -31,7 +31,7 @@
 
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
 
-    <Version>2021.8.20</Version>
+    <Version>2022.7.23</Version>
   </PropertyGroup>
 
   <ItemGroup>
